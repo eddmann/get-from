@@ -1,0 +1,22 @@
+{
+  "name": "get-from",
+  "version": "1.0.0",
+  "description": "Safely returns the value(s) in a nested object/array structure",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "safe",
+    "property",
+    "access",
+    "array",
+    "object",
+    "get-in"
+  ],
+  "author": "eddmann",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}
