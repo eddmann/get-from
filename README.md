@@ -1,5 +1,7 @@
 # get-from
 
+[![Build Status](https://travis-ci.org/eddmann/get-from.svg?branch=master)](https://travis-ci.org/eddmann/get-from)
+
 Safely returns the value(s) in a nested object/array structure.
 
 Having to do boilerplate checks such as `obj["a"] && obj["a"]["b"] && obj["a"]["b"]["c"]` complicates code!
