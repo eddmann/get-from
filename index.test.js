@@ -9,6 +9,10 @@ describe("single level object", () => {
     expect(get("a", { a: { b: "🎉" } })).toEqual({ b: "🎉" });
   });
 
+  test("present undefined value", () => {
+    expect(get("a", { a: undefined }, "😥")).toBe(undefined);
+  });
+
   test("missing value", () => {
     expect(get("b", { a: "🎉" })).toBe(undefined);
   });
@@ -36,12 +40,16 @@ describe("multi-level object", () => {
       expect(get("a.b", { a: { b: { c: "🎉" } } })).toEqual({ c: "🎉" });
     });
 
+    test("present undefined value", () => {
+      expect(get("a.b", { a: { b: undefined } }, "😥")).toBe(undefined);
+    });
+
     test("missing value", () => {
       expect(get("a.c", { a: { b: "🎉" } })).toBe(undefined);
     });
 
     test("missing undefined value", () => {
-      expect(get("a.c", { a: undefined })).toBe(undefined);
+      expect(get("a.b", { a: undefined })).toBe(undefined);
     });
 
     test("custom default scalar value", () => {
@@ -58,6 +66,12 @@ describe("multi-level object", () => {
   describe("3-level", () => {
     test("present value", () => {
       expect(get("a.b.c", { a: { b: { c: "🎉" } } })).toBe("🎉");
+    });
+
+    test("present undefined value", () => {
+      expect(get("a.b.c", { a: { b: { c: undefined } } }, "😥")).toBe(
+        undefined
+      );
     });
 
     test("missing value", () => {
@@ -106,6 +120,18 @@ describe("single map array access", () => {
       "🎉",
       "🎂"
     ]);
+  });
+
+  test("present undefined value", () => {
+    expect(get("a[].b", { a: undefined })).toEqual(undefined);
+  });
+
+  test("present object value", () => {
+    expect(get("a[].b", { a: { b: "🎉" } })).toEqual(undefined);
+  });
+
+  test("present scalar value", () => {
+    expect(get("a[].b", { a: "🎉" })).toEqual(undefined);
   });
 
   test("partially present scalar values", () => {
