@@ -1,6 +1,6 @@
 {
   "name": "get-from",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Safely returns the value(s) in a nested object/array structure",
   "main": "index.js",
   "scripts": {
